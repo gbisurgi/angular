@@ -1,0 +1,18 @@
+/_html
+/tmp
+.env
+
+# phpstorm project files
+.idea
+
+# Mac DS_Store Files
+.DS_Store
+
+# IDEs
+nbproject
+.DS_Store
+.idea
+*.swp
+.vagrant
+logs
+
