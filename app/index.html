@@ -7,6 +7,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- =============================================================== CSS -->
     <link rel="stylesheet" type="text/css" href="css/css.css">
+
     <title>Learning AngularJS</title>
 </head>
 
@@ -73,7 +74,7 @@
             </ul>
         </section>
 
-        <!-- ==================================================== FILTERS -->
+        <!-- ======================================================= FILTERS -->
         <section>
 
             <h2>Filters</h2>
@@ -192,7 +193,7 @@
         <!-- ========================================================== AJAX -->
         <section>
 
-            <h2>AJAX request</h2>
+            <h2>AJAX</h2>
 
             <h3>Load Ajax data</h3>
             <div ng-controller = "ajaxCtrl">
@@ -210,8 +211,20 @@
                     </tr>
                 </table>
             </div>
+        </section>
 
 
+        <!-- ========================================================= VIEWS -->
+        <section>
+
+            <h2>VIEWS</h2>
+
+            <h3>ng-view</h3>
+
+            <p><a href="#addStudent">Add Student</a></p>
+            <p><a href="#viewStudents">View Student</a></p>
+
+            <div ng-view></div>
 
         </section>
     </div>
@@ -219,7 +232,8 @@
     <!-- ================================================================ JS -->
     <script src="js/jquery-2.2.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/angular.min.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
 
     <script src="js/myApp.js"></script>
 
@@ -229,6 +243,8 @@
     <script src="js/controller/CountriesCtrl.js"></script>
     <script src="js/controller/studentCtrl.js"></script>
     <script src="js/controller/ajaxCtrl.js"></script>
+    <script src="js/controller/AddStudentCtrl.js"></script>
+    <script src="js/controller/ViewStudentsCtrl.js"></script>
 </body>
 
 
