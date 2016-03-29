@@ -14,7 +14,7 @@
     /* ****************************************************** CALLED FUNCTION */
     function ajaxCtrl($scope, $http) {
 
-        var url = "data.txt";
+        var url = "data";
 
         $http.get(url).success(function(data) {
             $scope.students = data;
