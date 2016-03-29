@@ -11,12 +11,12 @@ myApp.config(['$routeProvider', function($routeProvider) {
     })
 
     .when('/viewStudents', {
-        templateURL: 'partials/viewStudents.html',
+        template: '<p>paragraph</p>',
         controller: 'ViewStudentsCtrl'
     })
 
     .otherwise({
-        //redirectTo: '/addStudent'
+        redirectTo: '/'
     });
 }]);
 
