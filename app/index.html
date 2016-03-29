@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ========================================================= BOOTSTRAP -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- =============================================================== CSS -->
+    <link rel="stylesheet" type="text/css" href="css/css.css">
+    <title>Learning AngularJS</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Learning AngularJS</h1>
+
+        <!-- ======================================================= BINDING -->
+        <section>
+
+            <h2>Binding</h2>
+
+                <h3>Binding with curly brackets</h3>
+                <input type="text" ng-model="message_1">
+                <p>{{ message_1 }}</p>
+
+
+                <h3>Binding with ng-bind</h3>
+                <input type="text" ng-model="message_2">
+                <p ng-bind="message_2"></p>
+
+
+                <h3>One time binding</h3>
+                <input type="text" ng-model="message_3" ng-init="message_3 = 'hello' ">
+                <p ng-bind=" ::message_3"></p>
+        </section>
+
+        <!-- =================================================== CONTROLLERS -->
+        <section>
+
+            <h2>Controllers</h2>
+
+            <h3>Greeting Controller</h3>
+            <div ng-controller="GreetingCtrl">
+                {{ greeting }}
+            </div>
+
+
+            <h3>Double Controller</h3>
+            <div ng-controller="DoubleCtrl">
+                Two times <input ng-model="number"> equals -> {{ double(number) }}
+            </div>
+
+
+            <h3>Custom Spicy Controller</h3>
+            <div ng-controller="SpicyCtrl">
+                <input ng-model="customSpice">
+                <button ng-click="spicy(customSpice)">Custom spice</button>
+                ->I make my pasta alla arrabbiata with {{ spice }}
+            </div>
+        </section>
+
+        <!-- ==================================================== DIRECTIVES -->
+        <section>
+
+            <h2>Directives</h2>
+
+            <h3>ng-repeat</h3>
+            <ul ng-controller="CountriesCtrl">
+                <li ng-repeat="country in countries">
+                    {{ country.name + ": " + country.locale  }}
+                </li>
+            </ul>
+        </section>
+
+        <!-- ==================================================== FILTERS -->
+        <section>
+
+            <h2>Filters</h2>
+
+            <h3>Uppercase</h3>
+            write something here -> <input type="text" ng-model="uppercase">
+            -> {{ uppercase | uppercase }}
+
+
+            <h3>Lowercase</h3>
+            write something here -> <input type="text" ng-model="lowercase">
+            -> {{ lowercase | lowercase }}
+
+
+            <h3>Currency</h3>
+            write something here -> <input type="number" ng-model="currency">
+            -> {{ currency | currency }}
+
+
+            <h3>Filter</h3>
+            <input type="text" ng-model="countryName">
+            <ul ng-controller="CountriesCtrl">
+                <li ng-repeat="country in countries | filter:countryName">
+                    {{ country.name + ": " + country.locale  }}
+                </li>
+            </ul>
+
+
+            <h3>Order By</h3>
+            <ul ng-controller="CountriesCtrl">
+                <li ng-repeat="country in countries | orderBy:'name' ">
+                    {{ country.name + ": " + country.locale }}
+                </li>
+            </ul>
+        </section>
+
+
+        <!-- ======================================================== TABLES -->
+        <section>
+
+            <h2>Tables</h2>
+
+
+            <h3>Printing a table using ng-repeat</h3>
+            <table ng-controller="CountriesCtrl">
+                <tr>
+                    <th>Country</th>
+                    <th>Locale</th>
+                </tr>
+
+                <tr ng-repeat="country in countries">
+                    <td>{{ country.name  }}</td>
+                    <td>{{ country.locale  }}</td>
+                </tr>
+            </table>
+        </section>
+
+
+        <!-- ====================================================== HTML DOM -->
+        <section>
+
+            <h2>HTML DOM</h2>
+
+
+            <h3>ng-disabled directive</h3>
+            <input type="checkbox" ng-model="enableDisableButton">
+            Disable Button
+            <button ng-disabled ="enableDisableButton">Click Me!</button>
+
+
+            <h3>ng-hide directive</h3>
+            <input type="checkbox" ng-model="showHide">
+            Hide Button
+            <button ng-hide="showHide">Click Me!</button>
+
+
+            <h3>ng-show directive</h3>
+            <input type="checkbox" ng-model="showHide_2">
+            Show Button
+            <button ng-show="showHide_2">Click Me!</button>
+
+
+            <h3>ng-click directive</h3>
+            <p>Total clicks: {{ clickCounter }}</p>
+            <button ng-click="clickCounter = clickCounter + 1">click me please :)</button>
+        </section>
+
+        <!-- ========================================================= FORMS -->
+        <section>
+
+            <h2>FORMS</h2>
+
+            <h3>ng-click</h3>
+            <p>Reset data of a form using on-click directive of a button.</p>
+            <form  action="" ng-controller="studentCtrl" novalidate>
+                <input type="text" name="first_name" ng-model="firstName" required>
+                <input type="text" name="last_tname" ng-model="lastName" required>
+                <input type="email" name="email" ng-model="email" required>
+                <button ng-click = "reset()">Reset</button>
+            </form>
+        </section>
+
+
+        <!-- ====================================================== Includes -->
+        <section>
+
+            <h2>INCLUDES</h2>
+
+            <h3>ng-include</h3>
+
+            <div ng-include =" 'partials/included.html' "></div>
+
+        </section>
+
+
+        <!-- ========================================================== AJAX -->
+        <section>
+
+            <h2>AJAX request</h2>
+
+            <h3>Load Ajax data</h3>
+            <div ng-controller = "ajaxCtrl">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Roll No</th>
+                        <th>Percentage</th>
+                    </tr>
+
+                    <tr ng-repeat = "student in students">
+                        <td>{{ student.Name }}</td>
+                        <td>{{ student.RollNo }}</td>
+                        <td>{{ student.Percentage }}</td>
+                    </tr>
+                </table>
+            </div>
+
+
+
+        </section>
+    </div>
+
+    <!-- ================================================================ JS -->
+    <script src="js/jquery-2.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.min.js"></script>
+
+    <script src="js/myApp.js"></script>
+    <script src="js/controller/GreetingCtrl.js"></script>
+    <script src="js/controller/DoubleCtrl.js"></script>
+    <script src="js/controller/SpicyCtrl.js"></script>
+    <script src="js/controller/CountriesCtrl.js"></script>
+    <script src="js/controller/studentCtrl.js"></script>
+    <script src="js/controller/ajaxCtrl.js"></script>
+</body>
+
+
+</html>
