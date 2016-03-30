@@ -6,7 +6,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider
 
     .when('/addStudent', {
-        templateURL: 'partials/addStudent.html',
+        templateUrl: 'partials/addStudent.html',
         controller: 'AddStudentCtrl'
     })
 
