@@ -11,7 +11,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
     })
 
     .when('/viewStudents', {
-        template: '<p>paragraph</p>',
+        templateUrl: 'partials/viewStudents.html',
         controller: 'ViewStudentsCtrl'
     })
 
